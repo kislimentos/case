@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+:root {
+  --orange: #f7941d;
+}
+
+html,
+body {
+  background: #14171c;
+  color: #e5e7eb;
+  font-family: "PT Sans", system-ui, sans-serif;
+}
+
+body {
+  background-image:
+    radial-gradient(1100px 500px at 75% -5%, rgba(247, 148, 29, 0.07), transparent 60%),
+    radial-gradient(900px 500px at -10% 30%, rgba(136, 71, 255, 0.05), transparent 60%),
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.012) 0 2px, transparent 2px 7px);
+  background-attachment: fixed;
+}
+
+.font-display {
+  font-family: "Oswald", "PT Sans", sans-serif;
+}
+
+::selection {
+  background: rgba(247, 148, 29, 0.4);
+  color: #fff;
+}
+
+/* scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #101318;
+}
+::-webkit-scrollbar-thumb {
+  background: #2b3138;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a4149;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+/* range inputs */
+input[type="range"] {
+  accent-color: var(--orange);
+  cursor: pointer;
+}
+
+/* animations */
+@keyframes dropIn {
+  from {
+    transform: translateY(-24px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.drop-in {
+  animation: dropIn 0.5s ease-out;
+}
+
+@keyframes floatY {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.float-y {
+  animation: floatY 4s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.glow-pulse {
+  animation: glowPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes flashSpin {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.6);
+  }
+}
+.flash-spin {
+  animation: flashSpin 0.25s linear infinite;
+}
+
+/* roulette edge fade */
+.roulette-mask {
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+}
+
+/* price tag like reference site */
+.price-tag {
+  border: 1px solid #e05a2b;
+  background: #20140e;
+  color: var(--orange);
+  box-shadow: 0 0 12px rgba(224, 90, 43, 0.25), inset 0 0 8px rgba(224, 90, 43, 0.12);
+}
+
+.section-title {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+}
+.section-title::before,
+.section-title::after {
+  content: "";
+  height: 1px;
+  width: 90px;
+  background: linear-gradient(to right, transparent, rgba(247, 148, 29, 0.6));
+}
+.section-title::after {
+  background: linear-gradient(to left, transparent, rgba(247, 148, 29, 0.6));
+}
